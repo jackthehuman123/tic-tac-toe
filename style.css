@@ -2,6 +2,14 @@ html {
   font-family: monospace;
 }
 
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cell {
   display: block;
   height: 100px;
@@ -17,6 +25,6 @@ html {
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-template-rows: repeat(3, auto);
-  width: 310px;
+  width: 311px;
   box-shadow: 0px 0px 0px 2px;
 }

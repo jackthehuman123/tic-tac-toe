@@ -46,6 +46,10 @@ function updateCell(cell, cellIndex) {
   cell.textContent = currentPlayer;
 }
 
+function highlightCell(cell, color) {
+  cell.style.color = `${color}`;
+}
+
 function checkWinner() {
   let roundWon = false;
 
@@ -60,7 +64,9 @@ function checkWinner() {
     }
 
     if (cellA == cellB && cellB == cellC) {
-      statusText.textContent = `${currentPlayer} wins`;
+      for (let i = 0; i < condition.length; i++) {
+        highlightCell(cells[condition[i]], "red");
+      }
       roundWon = true;
       break;
     }
@@ -76,4 +82,12 @@ function checkWinner() {
   }
 }
 
-function resetGame() {}
+function resetGame() {
+  running = true;
+  statusText.textContent = `${currentPlayer}'s turn`;
+  options = ["", "", "", "", "", "", "", "", ""];
+  cells.forEach((cell) => {
+    cell.textContent = "";
+    highlightCell(cell, "black");
+  });
+}
